@@ -1,9 +1,9 @@
 diff --git a/Makefile b/Makefile
-index cc446d3..5244703 100644
+index 3729601..c74e5aa 100644
 --- a/Makefile
 +++ b/Makefile
-@@ -113,14 +113,19 @@ LDFLAGS+=$(LIB_PATHS) $(patsubst %,-l%,$(LINK_LIBS) $(SYS_LIBS))
- SUBDIRS=lfs
+@@ -119,14 +119,19 @@ SUBDIRS+=lua-signal
+ endif
  
  CHDKPTP_EXE=chdkptp$(EXE_EXTRA)$(EXE)
 +CHDKPTP_LIB=chdkptp$(EXE_EXTRA)$(LIB)
@@ -24,10 +24,10 @@ index cc446d3..5244703 100644
  	$(CC) -o $@ lfs/lfs.o $^ $(LDFLAGS)
  
 diff --git a/chdkptp.c b/chdkptp.c
-index 954d27c..36a259b 100644
+index 47cbba2..bc99211 100644
 --- a/chdkptp.c
 +++ b/chdkptp.c
-@@ -2160,7 +2160,11 @@ static const luaL_Reg lua_errlib[] = {
+@@ -2193,7 +2193,11 @@ static const luaL_Reg lua_errlib[] = {
  };
  
  
@@ -40,7 +40,7 @@ index 954d27c..36a259b 100644
  	/* set up meta table for error object */
  	luaL_newmetatable(L,CHDK_API_ERROR_META);
  	lua_pushcfunction(L,api_error_tostring);
-@@ -2229,13 +2233,9 @@ int main(int argc, char ** argv)
+@@ -2262,13 +2266,9 @@ int main(int argc, char ** argv)
  	g_argv = argv;
  	/* register signal handlers */
  //	signal(SIGINT, ptpcam_siginthandler);
@@ -52,30 +52,32 @@ index 954d27c..36a259b 100644
 -	luaopen_rawimg(L);	
 -	chdkptp_registerlibs(L);
 +	luaopen_chdkptp(L);
- 	exec_lua_string(L,"require('main')");
+ 	int r=exec_lua_string(L,"require('main')");
  	uninit_gui_libs(L);
  	lua_close(L);
 diff --git a/include.mk b/include.mk
-index 954f855..7080d8a 100644
+index 2b9a409..da0fb5e 100644
 --- a/include.mk
 +++ b/include.mk
-@@ -7,6 +7,7 @@ HOSTPLATFORM:=$(patsubst MINGW%,MINGW,$(shell uname -s))
- ifeq ($(HOSTPLATFORM),MINGW)
+@@ -8,6 +8,8 @@ ifeq ($(HOSTPLATFORM),MINGW)
  OSTYPE=Windows
  EXE=.exe
+ DLL=.dll
 +LIB=.dll
++
  # Note may be freetype or freetype6 depending on your CD version, zlib requried for 5.5 and later
  CD_FREETYPE_LIB=freetype6 z
  #CD_FREETYPE_LIB=freetype z
-@@ -14,6 +15,7 @@ else
- ifeq ($(HOSTPLATFORM),Linux)
+@@ -16,6 +18,8 @@ ifeq ($(HOSTPLATFORM),Linux)
  OSTYPE=Linux
  EXE= 
+ DLL=.so
 +LIB=.so
++
  CD_FREETYPE_LIB=freetype z
  endif
  endif
-@@ -22,7 +24,7 @@ endif
+@@ -24,7 +28,7 @@ endif
  EXE_EXTRA=
  
  CC=gcc

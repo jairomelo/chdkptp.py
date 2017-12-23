@@ -6,7 +6,7 @@ from setuptools import setup
 
 CHDKPTP_PATH = os.path.abspath(os.path.join('.', 'chdkptp', 'vendor',
                                             'chdkptp'))
-CHDKPTP_PATCH = os.path.abspath(os.path.join('.', 'chdkptp_module.patch'))
+CHDKPTP_PATCH = os.path.abspath(os.path.join('.', 'chdkptp_module.diff'))
 
 print(CHDKPTP_PATH)
 print(CHDKPTP_PATCH)
