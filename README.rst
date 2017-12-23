@@ -64,6 +64,10 @@ Now you can use chdkptp simply running::
     []
     >>>
 
+NOTE: if you installed the package from tar.gz file or url and you are inside
+the repo dir and try to import chdkptp, it will probably trow an error because
+python is loading the local dir module not the installed one.
+
 ==========
 chdkptp.py
 ==========

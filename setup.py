@@ -14,7 +14,7 @@ print(CHDKPTP_PATCH)
 
 class CustomInstall(InstallCommand):
     def run(self):
-        subprocess.check_call(['patch', '-d', CHDKPTP_PATH, '-i',
+        subprocess.check_call(['patch', '-f', '-d', CHDKPTP_PATH, '-i',
                                CHDKPTP_PATCH, '-p', '1'])
         os.symlink(os.path.join(CHDKPTP_PATH, 'config-sample-linux.mk'),
                    os.path.join(CHDKPTP_PATH, 'config.mk'))
@@ -31,8 +31,8 @@ setup(
     license='GPL',
     packages=['chdkptp'],
     package_dir={'chdkptp': 'chdkptp'},
-    package_data={'chdkptp': ['vendor/chdkptp/lua/*.lua']},
-    data_files=[("chdkptp", ["chdkptp/vendor/chdkptp/chdkptp.so"])],
+    package_data={"chdkptp": ["vendor/chdkptp/chdkptp.so",
+                              "vendor/chdkptp/lua/*.lua"]},
     install_requires=[
         "lupa >= 1.1",
     ],

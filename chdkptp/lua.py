@@ -4,10 +4,9 @@ import os
 
 import lupa
 
-CHDKPTP_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)),
-                            'vendor', 'chdkptp')
+CHDKPTP_PATH = os.path.join(os.path.dirname(os.path.dirname(__file__)),
+                            'chdkptp', 'vendor', 'chdkptp')
 logger = logging.getLogger('chdkptp.lua')
-
 
 class PTPError(Exception):
     def __init__(self, err_table):
