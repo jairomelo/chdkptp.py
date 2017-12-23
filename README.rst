@@ -10,12 +10,20 @@ As this this not the official version of this package you will have to install i
 Before installation make sure you are running python3.6, to make python version managing easier
 I recommend you to use `pyenv <https://github.com/pyenv/pyenv>`_
 
-Pip Instalation
-===========
+Pip Instalation from repo
+===============
+Pip -e (egg) have VCS support so the package can be installed like::
+
     $ pip install -e git+https://github.com/5up3rD4n1/chdkptp.py.git@master#egg=chdkptp.py
 
-Manual Instalation
-===========
+Pip install from tar.gz
+=======================
+Pip also can install tar.gz files so you can either download the tar.gz file or copy the release link::
+
+    $ pip install https://github.com/5up3rD4n1/chdkptp.py/archive/v0.1.4.tar.gz
+
+Manual Installation
+==================
 
 I highly suggest to create a virtual env before installing the package(this will avoid permission errors)::
 
