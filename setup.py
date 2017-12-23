@@ -6,7 +6,10 @@ from setuptools import setup
 
 CHDKPTP_PATH = os.path.abspath(os.path.join('.', 'chdkptp', 'vendor',
                                             'chdkptp'))
-CHDKPTP_PATCH = os.path.abspath(os.path.join('.', 'chdkptp_module.diff'))
+CHDKPTP_PATCH = os.path.abspath(os.path.join('.', 'chdkptp_module.patch'))
+
+print(CHDKPTP_PATH)
+print(CHDKPTP_PATCH)
 
 
 class CustomInstall(InstallCommand):
@@ -27,8 +30,9 @@ setup(
     author_email="johannes.baiter@gmail.com",
     license='GPL',
     packages=['chdkptp'],
-    package_data={"chdkptp": ["vendor/chdkptp/chdkptp.so",
-                              "vendor/chdkptp/lua/*.lua"]},
+    package_dir={'chdkptp': 'chdkptp'},
+    package_data={'chdkptp': ['vendor/chdkptp/lua/*.lua']},
+    data_files=[("chdkptp", ["chdkptp/vendor/chdkptp/chdkptp.so"])],
     install_requires=[
         "lupa >= 1.1",
     ],
