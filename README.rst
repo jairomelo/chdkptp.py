@@ -31,7 +31,7 @@ I highly suggest to create a virtual env before installing the package(this will
 
 Activate the environment::
 
-    $ activate ~/.virtualenvs/chdkptp
+    $ source ~/.virtualenvs/chdkptp/bin/activate
 
 To leave the virtual env just run::
 
