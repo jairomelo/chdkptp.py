@@ -8,9 +8,6 @@ CHDKPTP_PATH = os.path.abspath(os.path.join('.', 'chdkptp', 'vendor',
                                             'chdkptp'))
 CHDKPTP_PATCH = os.path.abspath(os.path.join('.', 'chdkptp_module.diff'))
 
-print(CHDKPTP_PATH)
-print(CHDKPTP_PATCH)
-
 
 class CustomInstall(InstallCommand):
     def run(self):
@@ -34,7 +31,7 @@ setup(
     package_data={"chdkptp": ["vendor/chdkptp/chdkptp.so",
                               "vendor/chdkptp/lua/*.lua"]},
     install_requires=[
-        "lupa >= 1.1",
+        "lupa >= 1.1"
     ],
     cmdclass={'install': CustomInstall}
 )

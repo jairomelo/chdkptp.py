@@ -2,13 +2,39 @@
 chdkptp.py
 ==========
 
-This repo is a fork from  `chdkptp.py <https://github.com/jbaiter/chdkptp.py>`_
-to make chdkptp.py compatible with python3.6.
+Python bindings for `chdkptp <https://www.assembla.com/spaces/chdkptp/wiki>`_
+via an embedded, thread-safe Lua runtime (thanks to Stefan Behnel's
+`lupa <https://github.com/scoder/lupa>`_).
 
-As this this not the official version of this package you will have to install it manually.
+Requirements
+============
+
+- C compiler
+- Lua 5.2, with headers
+- libusb, with headers
+- lupa, installed with the **--no-luajit** flag
+
+Currently chdkptp.py only works when the ``lupa`` package is linked to
+Lua. However, by default the package links to LuaJIT, so make sure that
+you install it with the `--no-luajit` flag.
+It is best to do this via `pip`, **before** you install chdkptp.py::
+
+    $ pip install lupa --install-option='--no-luajit'
+
+
+Documentation
+=============
+Please refer to the `API documentation on readthedocs.org <http://chdkptppy.readthedocs.org/en/latest/#api-reference>`_
+
+Installation
+============
 
 Before installation make sure you are running python3.6, to make python version managing easier
 I recommend you to use `pyenv <https://github.com/pyenv/pyenv>`_
+
+**Remember to install lupa before install**::
+
+        $ pip install lupa --install-option='--no-luajit'
 
 Pip install from tar.gz
 =======================
@@ -64,34 +90,6 @@ Now you can use chdkptp simply running::
     []
     >>>
 
-NOTE: if you installed the package from tar.gz file or url and you are inside
-the repo dir and try to import chdkptp, it will probably trow an error because
-python is loading the local dir module not the installed one.
-
-==========
-chdkptp.py
-==========
-
-Python bindings for `chdkptp <https://www.assembla.com/spaces/chdkptp/wiki>`_
-via an embedded, thread-safe Lua runtime (thanks to Stefan Behnel's
-`lupa <https://github.com/scoder/lupa>`_).
-
-Requirements
-============
-
-- C compiler
-- Lua 5.2, with headers
-- libusb, with headers
-- lupa, installed with the **--no-luajit** flag
-
-Currently chdkptp.py only works when the ``lupa`` package is linked to
-Lua. However, by default the package links to LuaJIT, so make sure that
-you install it with the `--no-luajit` flag.
-It is best to do this via `pip`, **before** you install chdkptp.py::
-
-    $ pip install lupa --install-option='--no-luajit'
-
-
-Documentation
-=============
-Please refer to the `API documentation on readthedocs.org <http://chdkptppy.readthedocs.org/en/latest/#api-reference>`_
+NOTE: if you installed the package and you are inside the repo dir and try
+to import chdkptp, it will probably throw an error because python is loading
+the local dir module not the installed one.

@@ -1,8 +1,8 @@
 import logging
+import lupa
 import numbers
 import os
-
-import lupa
+import six
 
 CHDKPTP_PATH = os.path.join(os.path.dirname(os.path.dirname(__file__)),
                             'chdkptp', 'vendor', 'chdkptp')
@@ -24,7 +24,7 @@ class LuaContext(object):
         inside of `pcall` and raises proper Exceptions.
     """
     def _raise_exception(self, errval):
-        if isinstance(errval, (str, numbers.Number)):
+        if isinstance(errval, (six.string_types, numbers.Number)):
             raise lupa.LuaError(errval)
         elif errval['etype'] == 'ptp':
             raise PTPError(errval)
