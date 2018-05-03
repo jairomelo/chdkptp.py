@@ -31,7 +31,7 @@ setup(
     package_data={"chdkptp": ["vendor/chdkptp/chdkptp.so",
                               "vendor/chdkptp/lua/*.lua"]},
     install_requires=[
-        "lupa >= 1.1"
+        "lupa >= 1.6"
     ],
     cmdclass={'install': CustomInstall}
 )

@@ -84,7 +84,7 @@ class LuaContext(object):
         return self._rt.globals()
 
     def __init__(self):
-        self._rt = lupa.LuaRuntime(unpack_returned_tuples=True)
+        self._rt = lupa.LuaRuntime(unpack_returned_tuples=True, encoding='latin-1')
         if self.eval("type(jit) == 'table'"):
             raise RuntimeError("lupa must be linked against Lua, not LuaJIT.\n"
                                "Please install lupa with `--no-luajit`.")
