@@ -29,6 +29,8 @@ Please refer to the `API documentation on readthedocs.org <http://chdkptppy.read
 Installation
 ============
 
+**For better results, try manual installation**
+
 Before installation make sure you are running python3.6, to make python version managing easier
 I recommend you to use `pyenv <https://github.com/pyenv/pyenv>`_
 
@@ -48,7 +50,7 @@ Pip -e (egg) have VCS support so the package can be installed like::
 
     $ pip install -e git+https://github.com/5up3rD4n1/chdkptp.py.git@master#egg=chdkptp.py
 
-Manual Installation
+Manual Installation **Recomended**
 ==================
 
 I highly suggest to create a virtual env before installing the package(this will avoid permission errors)::
@@ -65,7 +67,7 @@ To leave the virtual env just run::
 
 Now clone the repo with all the submodules::
 
-    $ git clone --recursive -j8  git@github.com:5up3rD4n1/chdkptp.py.git
+    $ git clone --recursive -j8  https://github.com/jairomelo/chdkptp.py.git
 
 Get into the repo::
 
@@ -74,6 +76,10 @@ Get into the repo::
 Install lupa dependency::
 
     $ pip install lupa --install-option='--no-luajit'
+    
+Install other dependencies::
+
+    $ pip install six
 
 Prepare the package with the python3 distutils command::
 
