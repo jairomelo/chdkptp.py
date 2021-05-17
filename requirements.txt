@@ -1,0 +1,2 @@
+lupa --install-option="--no-luajit"
+six

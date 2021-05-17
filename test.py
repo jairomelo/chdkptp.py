@@ -23,21 +23,21 @@ dev.switch_mode('record')
 assert dev.mode == 'record'
 
 print "Checking streaming JPEG capture"
-for i in xrange(5):
+for i in range(5):
     fpath = os.path.join(tmp_dir, "stream_{0:02}.jpg".format(i))
     imgdata = dev.shoot()
     with open(fpath, 'wb') as fp:
         fp.write(imgdata)
 
 print "Checking streaming DNG capture"
-for i in xrange(5):
+for i in range(5):
     fpath = os.path.join(tmp_dir, "stream_{0:02}.dng".format(i))
     imgdata = dev.shoot(dng=True)
     with open(fpath, 'wb') as fp:
         fp.write(imgdata)
 
 print "Checking downloading JPEG capture"
-for i in xrange(5):
+for i in range(5):
     fpath = os.path.join(tmp_dir, "download_{0:02}.jpg".format(i))
     imgdata = dev.shoot(stream=False, download_after=True, remove_after=True)
     with open(fpath, 'wb') as fp:
