@@ -99,3 +99,10 @@ Now you can use chdkptp simply running::
 NOTE: if you installed the package and you are inside the repo dir and try
 to import chdkptp, it will probably throw an error because python is loading
 the local dir module not the installed one.
+
+
+====
+Developers
+====
+
+This package was developed by @jbaiter and updated by @5up3rD4n1
