@@ -29,28 +29,9 @@ Please refer to the `API documentation on readthedocs.org <http://chdkptppy.read
 Installation
 ============
 
-**For better results, try manual installation**
+Currently, only manual installation is fully functional. For other ways to install this package see https://github.com/5up3rD4n1/chdkptp.py
 
-Before installation make sure you are running python3.6, to make python version managing easier
-I recommend you to use `pyenv <https://github.com/pyenv/pyenv>`_
-
-**Remember to install lupa before install**::
-
-        $ pip install lupa --install-option='--no-luajit'
-
-Pip install from tar.gz
-=======================
-Pip also can install tar.gz files so you can either download the tar.gz file or copy the release link::
-
-    $ pip install https://github.com/5up3rD4n1/chdkptp.py/releases/download/v0.1.4/chdkptp.py-0.1.4.tar.gz
-
-Pip Instalation from repo
-===============
-Pip -e (egg) have VCS support so the package can be installed like::
-
-    $ pip install -e git+https://github.com/5up3rD4n1/chdkptp.py.git@master#egg=chdkptp.py
-
-Manual Installation **Recomended**
+Manual Installation
 ==================
 
 I highly suggest to create a virtual env before installing the package(this will avoid permission errors)::
